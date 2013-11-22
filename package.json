@@ -1,0 +1,32 @@
+{
+  "author": "ariatemplates <contact@ariatemplates.com> (http://github.com/ariatemplates)",
+  "name": "atplugins.calendarwidget",
+  "description": "A calendar widget for Aria Templates (aka AT).",
+  "version": "1.0.0",
+  "homepage": "http://ariatemplates.com/plugins/calendarwidget",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ariatemplates-plugins/calendarwidget.git"
+  },
+  "config": {
+    "port": "8080"
+  },
+  "scripts": {
+    "lint": "node build/build.js checkStyle",
+    "build": "npm run-script lint && node build/build.js",
+    "test": "npm run-script build && attester test/attester.yml --phantomjs-instances 2",
+    "start": "npm run-script build && attester test/attester.yml --server-only",
+    "sample": "npm run-script build && node build/server.js"
+  },
+  "devDependencies": {
+    "gzip-js": "0.3.2",
+    "grunt-verifylowercase": "0.2.0",
+    "grunt-leading-indent": "0.1.0",
+    "grunt": "git+https://github.com/divdavem/grunt.git#13da751bdfd291c25a47ca7669ae0778eb289b28",
+    "grunt-contrib-jshint": "0.6.3",
+    "attester": "1.2.1",
+    "express": "3.3.5",
+    "atpackager": "0.1.0",
+    "ariatemplates": "1.4.12"
+  }
+}
