@@ -1,0 +1,12 @@
+resources:
+ '/':
+  - 'src'
+ '/test/':
+  - 'test'
+tests:
+ aria-templates:
+  extraScripts:
+   - http://cdn.ariatemplates.com/at1412.js?skin
+  classpaths:
+   includes:
+    - test.PluginTestSuite
