@@ -5,13 +5,20 @@
 		'light' : 'light.LightWidgetLib'
 	},
 	$css: ["app.css.SampleTemplateStyle"],
-	$hasScript: true
+	$hasScript: true,
+	$width:  {
+		min: 240	
+	},
+	$height: {
+		min: 200
+	}
 }}
 
 	{macro main()}
-
 			<!-- Control Panel Start -->
-			<div class="calendar-control-container">
+			{var leftBlockVisible = $width > 1275 && $height > 640 /}
+			{if leftBlockVisible}
+			<div class="calendar-control-container" style="display:inline-block; width:190px;vertical-align:top;height:${$vdim(90)}px;">
 				<div class="inputsContainer">
 					{@light:Calendar {
 						attributes : {
@@ -142,9 +149,10 @@
 					}/}
 						</div>
 					</div>
+					{/if}
 					<!-- Control Panel End -->
 
-					<div style="position:relative; width: 85%; height:800px; float: right;">
+					<div style="position:relative; vertical-align:top;display:inline-block; width: ${ leftBlockVisible ? $hdim(10,1) : $hdim(190,1) }px; height:${$vdim(180)}px;">
 						{@sample:Calendar{
 							moduleCtrl : {
 								classpath : "app.SampleModuleController",

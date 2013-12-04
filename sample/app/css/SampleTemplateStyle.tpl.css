@@ -2,6 +2,10 @@
     $classpath: "app.css.SampleTemplateStyle"
 }}
 {macro main()}
+    textarea, select, input, button, table {
+        font-family: tahoma,arial,helvetica,sans-serif;
+        font-size: 11px;
+    }
 
     .calendar-control-container {
       display: inline-block;
