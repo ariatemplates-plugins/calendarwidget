@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -17,12 +17,13 @@
         <script type="text/javascript">
           var devMode = document.location.href.indexOf("devMode=true") != -1;
           if(devMode) {
-            document.write('<scr' + 'ipt language="JavaScript" src="http://cdn.ariatemplates.com/at1412.js?skin&dev"> </scri' + 'pt>');
+            document.write('<scr' + 'ipt language="JavaScript" src="http://cdn.ariatemplates.com/at149.js?skin&dev"> </scri' + 'pt>');
           } else {
-            document.write('<scr' + 'ipt language="JavaScript" src="http://cdn.ariatemplates.com/at1412.js?skin"> </scri' + 'pt>');
+            document.write('<scr' + 'ipt language="JavaScript" src="http://cdn.ariatemplates.com/at149.js?skin"> </scri' + 'pt>');
             document.write('<scr' + 'ipt language="JavaScript" src="atplugins.calendarwidget.js"> </scri' + 'pt>');
           }
         </script>
+        
         <script type="text/javascript">
           aria.core.AppEnvironment.setEnvironment({
             appSettings:{
@@ -35,10 +36,11 @@
         </script>
         
         <style>
-            body {
+            body, html {
                 margin: 0;
                 padding: 0;
                 background-color: #fafafa;
+                overflow: hidden;
             }
         </style>
     </head>
@@ -46,12 +48,21 @@
         <div id="myApp"></div>
 
         <script type="text/javascript">
+              aria.core.DownloadMgr.updateRootMap({
+                  "*" : "/plugins/calendarwidget/"
+              });
               Aria.loadTemplate({
                 classpath: "app.SampleTemplate",
                 div: "myApp",
+                rootDim: {
+                  width: {min:1},
+                  height: {min:1}
+                },
                 data: {
                   calendarData:{}
-                }
+                },
+                width: {min:1},
+                height: {min:1}
               });
         </script>
     </body>

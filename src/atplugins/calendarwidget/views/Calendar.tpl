@@ -72,8 +72,8 @@
         id: "calendar-header",
         type: "table",
         attributes: {
-            "cellpadding": 0,
-            "cellspacing": 0,
+            "cellpadding": "0",
+            "cellspacing": "0",
             classList: ["calendar-header"]
         },
         macro: {
