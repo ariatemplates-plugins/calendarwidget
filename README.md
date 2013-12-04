@@ -2,7 +2,9 @@
 
 The **calendar widget** is a plugin for [Aria Templates](http://ariatemplates.com/ "Aria Templates").
 
-A demo is available at [http://ariatemplates.com/plugins/calendarwidget] (http://ariatemplates.com/plugins/calendarwidget)
+- A demo is available at [http://ariatemplates.com/plugins/calendarwidget] (http://ariatemplates.com/plugins/calendarwidget)
+
+- Documentation can be found in the [Calendar Widget Plugin blog article.](http://ariatemplates.com/blog/2013/12/calendar-widget-plugin/ "Calendar Widget Plugin blog article.")
 
 When using the demo, simply hold down `Ctrl + click` to drag out a new event.
 
@@ -62,7 +64,7 @@ And finally, from your template, an instance of the calendar can then be created
         }
     }/}
 
-And that's it, feel free to look through the source code of ``app.SampleModuleController`` to understand more about how to interact with the calendar properties and events. 
+And that's it, feel free to look through the source code of ``app.SampleModuleController`` to understand more about how to interact with the calendar properties and events, you can also find more documentation in the [Calendar Widget Plugin blog article.](http://ariatemplates.com/blog/2013/12/calendar-widget-plugin/ "Calendar Widget Plugin blog article.")
 
 Enjoy!
 
