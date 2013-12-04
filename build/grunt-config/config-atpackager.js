@@ -39,11 +39,11 @@
       build : {
         options : {
           sourceDirectories : [
-            "node_modules/ariatemplates/src", /* folder where the Aria Templates framework is located */
             "src"  /* folder where the plugin is located */
           ],
           outputDirectory : 'build/output',
           ATBootstrapFile : 'aria/bootstrap.js',
+          ATDirectories : ['node_modules/ariatemplates/src'], /* folder where the Aria Templates framework is located */
 
           sourceFiles : atExtensions,
           defaultBuilder : {
@@ -56,9 +56,7 @@
             {
               "name" : process.env.npm_package_name + ".js",
               "files" : [
-                path + "/**/*",
-                "!aria/**/*",
-                "!README.md"
+                path + "/**/*"
               ]
             }
           ],
@@ -77,16 +75,7 @@
             {
               type : 'ATUrlMap',
               cfg : {
-                mapFile : process.env.npm_package_name + '.js',
-                sourceFiles : [
-                  '**/*'
-                ],
-                starCompress : [
-                  '*'
-                ],
-                starStarCompress : [
-                  '*'
-                ]
+                mapFile : process.env.npm_package_name + '.js'
               }
             }
           ]
