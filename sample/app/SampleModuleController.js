@@ -35,6 +35,7 @@ Aria.classDefinition({
                 eventEndTime : '0:00',
                 timeZone : "Europe/London",
                 lock : false,
+                interval : 15,
                 startDisplayHours: 6,
                 // from 0 to 23
                 startDisplayMinutes: 15,

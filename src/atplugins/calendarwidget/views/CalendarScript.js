@@ -3,8 +3,7 @@ Aria.tplScriptDefinition({
     $constructor : function () {
         this.weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
         this.selected = null;
-        this.TABLE_HEIGHT = 2016;
-        this.STEP = this.TABLE_HEIGHT / 24 / 4;
+        this.TABLE_HEIGHT = 2016;        
         this.tmpItems = {};
         this.viewData = {};
     },
@@ -45,9 +44,10 @@ Aria.tplScriptDefinition({
             this.data.startWeekDay = this.data.startWeekDay || 0;
             this.data.highlightWeekEnd = this.data.highlightWeekEnd || false;
             this.data.workHours = this.data.workHours || [0, 24];
-
+            this.data.interval = this.data.interval || 15;
+            this.data._numberOfIncrements = 60 / this.data.interval;
+            this.STEP = this.TABLE_HEIGHT / 24 / this.data._numberOfIncrements;
             this.__normalizeEventsDates();
-
             this.__update(this.data.type, this.data.date);
         },
 
@@ -126,10 +126,10 @@ Aria.tplScriptDefinition({
 
         __getClosestDateStep : function(date){
             var newDate = new Date(date), min = date.getMinutes();
-            var diff = min % 15;
+            var diff = min % this.data.interval;
             if(diff !== 0){
                 if(diff > 7){
-                    newDate.setMinutes(newDate.getMinutes() + 15 - diff);
+                    newDate.setMinutes(newDate.getMinutes() + this.data.interval - diff);
                 }
                 else{
                     newDate.setMinutes(newDate.getMinutes() - diff);
@@ -434,7 +434,7 @@ Aria.tplScriptDefinition({
         },
 
         calculateEventsForColumns : function (isModificationLayer) {
-            var SHIFT_CONSTANT = 15;
+            var SHIFT_CONSTANT = this.data.interval;
             var self = this, _filterByRange = function (first_day, last_day) {
                 return function (o) {
                     var last = new Date(last_day);
@@ -461,7 +461,7 @@ Aria.tplScriptDefinition({
                 }
                 var startPlusOneStep = new Date(event.start);
                 startPlusOneStep.setMinutes(event.start.getMinutes()+SHIFT_CONSTANT);
-                var start = dailyStart - day, duration = dailyEnd - dailyStart, durationInSteps = duration/(1000*60*15);
+                var start = dailyStart - day, duration = dailyEnd - dailyStart, durationInSteps = duration/(1000*60*self.data.interval);
                 var top = start*self.TABLE_HEIGHT/(1000*60*60*24);
                 top = ((top-1)>0)? top-1 : top;
                 var height = (duration*self.TABLE_HEIGHT/(1000*60*60*24)) - 2;
@@ -695,12 +695,12 @@ Aria.tplScriptDefinition({
                         var x = evt.clientX - aria.utils.Dom.getGeometry(c).x + timetableScroll.scrollLeft;
 
                         var steps = Math.floor(y/this.STEP);
-                        var hours = Math.floor(steps/4);
-                        var minutes = (steps%4)*15;
+                        var hours = Math.floor(steps/this.data._numberOfIncrements);
+                        var minutes = (steps%this.data._numberOfIncrements)*this.data.interval;
                         startDate.setHours(hours);
                         startDate.setMinutes(minutes);
                         endDate = new Date(startDate);
-                        endDate.setMinutes(endDate.getMinutes()+15);
+                        endDate.setMinutes(endDate.getMinutes()+this.data.interval);
                     }
 
                     var newEvt = {
@@ -830,7 +830,7 @@ Aria.tplScriptDefinition({
         },
 
         updateY : function (diffY) {
-            var steps = Math.floor(diffY / this.STEP), shift = steps * this.STEP, minuteDiff = steps * 15;
+            var steps = Math.floor(diffY / this.STEP), shift = steps * this.STEP, minuteDiff = steps * this.data.interval;
 
             var evt = this.modEvent;
             var startMinutes = evt.start.getMinutes(), endMinutes = evt.end.getMinutes();
