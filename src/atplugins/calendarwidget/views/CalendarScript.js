@@ -487,7 +487,7 @@ Aria.tplScriptDefinition({
                 };
             };
             var data = this.data;
-            var numOfDays = parseInt((data.range[data.range.length-1] - data.range[0]) / (24 * 3600 * 1000), 10) + 1;
+            var numOfDays = Math.round((data.range[data.range.length-1] - data.range[0]) / (24 * 3600 * 1000)) + 1;
             var evtToFilter = isModificationLayer? this.viewData.modifyingEvents : this.data.events;
             this.setEventOrder();
             var week_events = aria.utils.Array.filter(evtToFilter, _filterByRange(data.range[0], data.range[data.range.length-1]));
