@@ -3,7 +3,7 @@ Aria.tplScriptDefinition({
     $constructor : function () {
         this.weekDays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
         this.selected = null;
-        this.TABLE_HEIGHT = 2016;        
+        this.TABLE_HEIGHT = 2016;
         this.tmpItems = {};
         this.viewData = {};
     },
@@ -24,7 +24,7 @@ Aria.tplScriptDefinition({
                 this.data.events.selectedEventIndex = '';
                 this.$refresh();
             }
-            
+
             if (evt.name == "timeZoneChange") {
                 this.data.events.selectedEventIndex = '';
                 this.updateEvents();
@@ -753,7 +753,7 @@ Aria.tplScriptDefinition({
                 aria.templates.RefreshManager.resume();
 
                 this.__endModification(this.modEvent);
-                
+
             }
 
         },
