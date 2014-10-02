@@ -52,7 +52,7 @@ Aria.tplScriptDefinition({
         },
 
         $beforeRefresh: function (par) {
-            if(aria.utils.Array.indexOf(["itemsSection", "calendar-wrapper", "calendar-grid"], par.outputSection) > -1 || par.outputSection === undefined){
+            if(aria.utils.Array.indexOf(["itemsSection", "calendar-wrapper", "calendar-grid"], par.section) > -1 || par.section === undefined){
                 var items = Aria.$window.document.querySelectorAll('#' + this.$getId("calendar") + ' div.timetable');
                 if(items.length !== 0){
                     this.lastTimetableScroll = items[0].scrollTop;
@@ -64,10 +64,10 @@ Aria.tplScriptDefinition({
             var container=aria.utils.Dom.getElementById(this.$getId("calendar"));
             container.onselectstart = Aria.returnFalse;
 
-            if(par && par.outputSection == "all_daySection"){
+            if(par && par.section == "all_daySection"){
                 this.setTimetableTopOffset();
             }
-            if(!par || par.outputSection === undefined || aria.utils.Array.indexOf(["itemsSection", "calendar-wrapper", "calendar-grid"], par.outputSection) > -1){
+            if(!par || par.section === undefined || aria.utils.Array.indexOf(["itemsSection", "calendar-wrapper", "calendar-grid"], par.section) > -1){
                 this.__restoreTimetableScroll();
             }
         },
@@ -825,7 +825,7 @@ Aria.tplScriptDefinition({
                 }
             }
             this.$refresh({
-                outputSection : this.isAllDayModification? "allDayModificationLayer" : "modificationLayer"
+                section : this.isAllDayModification? "allDayModificationLayer" : "modificationLayer"
             });
         },
 
@@ -860,7 +860,7 @@ Aria.tplScriptDefinition({
             }
 
             this.$refresh({
-                outputSection : "modificationLayer"
+                section : "modificationLayer"
             });
         },
 
