@@ -176,7 +176,7 @@
                 {for var j=0; j<2; j++}
                     <tr>
                         <th class="hours" scope="row">
-                            <div>{if (j == 0)}${i|pad:2, true}:00{else/}&nbsp;{/if}</div>
+                            <div>{if (j == 0)}${i|pad:2, true|escapeforhtml:false}:00{else/}&nbsp;{/if}</div>
                             <div>&nbsp;</div>
                         </th>
                         {foreach day inArray data.range}
