@@ -65,7 +65,7 @@
                 "dayOfWeekLabelFormat" : {},
                 "dateLabelFormat" : {},
                 "completeDateLabelFormat" : {}
-            }
+            };
             this._changedSettingsNbr = 11;
             this.init(data);
         },
@@ -349,7 +349,7 @@
                 }
             },
             _getMonthKey : function (jsDate) {
-                return [jsDate.getMonth(), jsDate.getFullYear()].join('-');
+                return [jsDate.getMonth(), jsDate.getFullYear()].join("-");
             },
             /**
              *
@@ -565,7 +565,7 @@
                     }
                     currentDate.setDate(currentDate.getDate() + 1);
                     if (currentDate.getDate() == 1) {
-                        // the next day is the first of a month, so 'day' is the last of the month
+                        // the next day is the first of a month, so "day" is the last of the month
                         res.monthEnd = day.monthKey;
                         day.isLastOfMonth = true;
                     }

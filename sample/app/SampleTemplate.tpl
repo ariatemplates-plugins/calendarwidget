@@ -24,6 +24,9 @@
 						attributes : {
 							classList : ["light-calendar"]
 						},
+						showWeekNumbers: false,
+						numberOfUnits: 1,
+						showShortcuts: false,
 						bind : {
 							value: {
 								to : "date",

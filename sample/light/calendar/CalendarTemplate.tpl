@@ -89,7 +89,7 @@
     {macro renderDay(day, month)}
         {var jsDate=day.jsDate/}
         {if day.monthKey==month.monthKey}
-            <td ${day.isSelectable ? "data-date=\""+jsDate.getTime()+"\"":""}
+            <td ${day.isSelectable ? "data-date=\""+jsDate.getTime()+"\"":""|escapeForHTML:false}
                 class="${getClassForDay(day)}"
             >${day.label}</td>
         {else/}

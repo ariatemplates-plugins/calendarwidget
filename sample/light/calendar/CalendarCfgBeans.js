@@ -46,7 +46,7 @@
                     "showWeekNumbers" : {
                         $type : "json:Boolean",
                         $description : "Specifies whether week numbers should be displayed.",
-                        $default : false
+                        $default : true
                     },
                     "value" : {
                         $type : "json:Date",
@@ -69,7 +69,7 @@
                     "numberOfUnits" : {
                         $type : "json:Integer",
                         $description : "Number of display units to show at the same time.",
-                        $default : 1
+                        $default : 3
                     },
                     "startDate" : {
                         $type : "json:Date",
@@ -103,7 +103,7 @@
                     "showShortcuts" : {
                         $type : "json:Boolean",
                         $description : "Specifies if today and selected day shortcuts should be displayed",
-                        $default : false
+                        $default : true
                     },
                     "restrainedNavigation" : {
                         $type : "json:Boolean",

@@ -38,7 +38,7 @@
                         this.updateClass(valueInfos.newValuePosition);
                         if (evt.propertyshowShortcuts) {
                             this.$refresh({
-                                outputSection : "selectedDay"
+                                section : "selectedDay"
                             });
                         }
                     } else {
@@ -83,7 +83,7 @@
                     res.push(baseCSS + "today");
                 }
                 res.push(day.isSelectable ? baseCSS + "selectable" : baseCSS + "unselectable");
-                return res.join(' ');
+                return res.join(" ");
             },
 
             mouseOverDay : function (evt) {

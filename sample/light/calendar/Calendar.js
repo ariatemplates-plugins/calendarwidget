@@ -23,7 +23,7 @@
 
             this.$Element.constructor.apply(this, arguments);
 
-            var sclass = this._cfg.sclass;
+            var sclass = this._cfg.sclass || "std";
             var skinObj = nspace.calendar.CalendarSkin.skinObject[sclass];
 
             /**
